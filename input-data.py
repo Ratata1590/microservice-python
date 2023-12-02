@@ -3,7 +3,7 @@ import os
 
 if __name__ == "__main__":
     input_queue = SQLiteAckQueue(
-        path=os.path.join("queues", "nodes", "n1.py"),
+        path=os.path.join("queues", "n2.py"),
         name="input",
         multithreading=True,
         auto_commit=True,

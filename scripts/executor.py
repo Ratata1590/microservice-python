@@ -1,4 +1,5 @@
 from multiprocessing.pool import ThreadPool
+from xml.etree.ElementInclude import default_loader
 from persistqueue import SQLiteAckQueue
 from persistqueue.exceptions import Empty
 import traceback
@@ -33,19 +34,19 @@ if __name__ == "__main__":
     parser.add_argument(
         "--filepath",
         type=str,
-        required=True,
+        default=os.environ.get("FILEPATH") or "node.py",
         help="path to node .py file",
     )
     parser.add_argument(
         "--poolsize",
         type=int,
-        default=1,
+        default=os.environ.get("POOLSIZE") or 1,
         help="worker poolsize default=1",
     )
     parser.add_argument(
         "--retry",
         type=int,
-        default=1,
+        default=os.environ.get("RETRY") or 1,
         help="retry policy default=1",
     )
 
